@@ -9,12 +9,15 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <style>
     /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
-    .row.content {height: 1500px}
+    .row.content {
+		height: 1500px;
+	}
     
     /* Set gray background color and 100% height */
     .sidenav {
       background-color: #f1f1f1;
       height: 100%;
+	  width: 25%;
     }
     
     /* Set black background color, white text and some padding */
@@ -25,13 +28,33 @@
     }
     
     /* On small screens, set height to 'auto' for sidenav and grid */
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 900px) {
       .sidenav {
         height: auto;
         padding: 15px;
+		width: 100%
       }
       .row.content {height: auto;} 
     }
+	#myBtn {
+		display: block; /* Hidden by default */
+		position: fixed; /* Fixed/sticky position */
+		bottom: 20px; /* Place the button at the bottom of the page */
+		right: 30px; /* Place the button 30px from the right */
+		z-index: 99; /* Make sure it does not overlap */
+		border: none; /* Remove borders */
+		outline: none; /* Remove outline */
+		background-color: red; /* Set a background color */
+		color: white; /* Text color */
+		cursor: pointer; /* Add a mouse pointer on hover */
+		padding: 15px; /* Some padding */
+		border-radius: 10px; /* Rounded corners */
+		font-size: 18px; /* Increase font size */
+	}
+
+	#myBtn:hover {
+		background-color: #555; /* Add a dark-grey background on hover */
+	}
   </style>
 </head>
 <body>
@@ -41,11 +64,12 @@
     <div class="col-sm-3 sidenav">
       <h3><span class="glyphicon glyphicon-user"></span> Low Gin Wee </h3> <!-- TODO Bold this -->
       <ul class="nav nav-pills nav-stacked">
-        <li><a href="#section1"><span class="glyphicon glyphicon-envelope"></span> Home</a></li>
-        <li><a href="#section1"><span class="glyphicon glyphicon-earphone"></span> Home</a></li>
-		<li><a href="#section1"><span class="glyphicon glyphicon-globe"></span> Home</a></li>
-		<li><a href="#section1"><span class="glyphicon glyphicon-link"></span> Home</a></li>
-		<li><a href="#section1"><span class="glyphicon glyphicon-link"></span> Home</a></li>
+        <li><span class="glyphicon glyphicon-envelope"></span> ginwee.low@gmail.com</li>
+        <li><span class="glyphicon glyphicon-envelope"></span> ginwee.low@u.nus.edu</li>
+        <li><span class="glyphicon glyphicon-earphone"></span> 97709665</li>
+		<li><span class="glyphicon glyphicon-globe"></span> Home</li>
+		<li><span class="glyphicon glyphicon-link"></span> Home</li>
+		<li><span class="glyphicon glyphicon-link"></span> Home</li>
       </ul><br>
 	  
 	  <h4><span class="glyphicon glyphicon-education"></span> Education </h4> 
@@ -55,6 +79,7 @@
 	  
 	  <h4><span class="glyphicon glyphicon-stats"></span> Skills & Proficiencies </h4> 
 	  <h5>C#, C/C++, Python, Python, HTML/CSS, JavaScript</h5> 
+	  <h5>PostgesSQL, OpenGL</h5> 
 	  <h5>Verilog/System Verilog</h5> 
 	  <h5>Django, Node.js</h5> 
 	  <h5>Unity</h5> 
@@ -65,13 +90,22 @@
 	  
 	  <h4><span class="glyphicon glyphicon-king"></span> Interests </h4> 
 	  <h5>Marathons, Track & Field / Road Relays ,  Triathalons (in training) <a href="#section1"> Strava </a></h5> 
+	  <br>
+	  
+	  <h4><span class="glyphicon glyphicon-th-list"></span> Jump-To </h4> 
+	  <ul class="nav nav-pills nav-stacked">
+        <li><a href="#section1"><span class="glyphicon glyphicon-apple"></span> Relevant coursework/modules taken</a></li>
+        <li><a href="#Experiences"><span class="glyphicon glyphicon-briefcase"></span> Experiences</a></li>
+		<li><a href="#Projects"><span class="glyphicon glyphicon-tasks"></span> Project Works</a></li>
+		<li><a href="#Independent"><span class="glyphicon glyphicon-asterisk"></span> Independent Projects/Hackathons</a></li>
+      </ul><br>
     </div>
 
     <div class="col-sm-9">
 		<h3>Relevant coursework/modules taken</h3>
 		<hr>
 		<!--<hr>-->
-		<h3><span class="glyphicon glyphicon-briefcase"></span> EXPERIENCES</h3>
+		<h3 id="Experiences"><span class="glyphicon glyphicon-briefcase"></span> Experiences</h3>
 		<h4>Infineon Technologies Asia Pacific</h4>
 		<h5>Systems/Verifications Engineer</h5>
 		<h6>Jan 2020 - July 2020</h6>
@@ -105,7 +139,7 @@
 		<br>
 	 
 		<hr>
-		<h3><span class="glyphicon glyphicon-tasks"></span> Project Works</h3>
+		<h3 id = "Projects"><span class="glyphicon glyphicon-tasks"></span> Project Works</h3>
 		<h4>Independent Software Development Project (Orbital) CP2106</h4>
 		<h5><span class="label label-primary">Unity</span> <span class="label label-primary">Google Firebase and Firebase Authentication</span> <span class="label label-primary">Andriod Studio and API</span></h5>
 		<ul class="nav nav-pills nav-stacked">
@@ -128,7 +162,7 @@
 		
 		<hr>
 		<!--<hr>-->
-		<h3><span class="glyphicon glyphicon-asterisk"></span> Independent Projects/Hackathons</h3>
+		<h3 id = "Independent"><span class="glyphicon glyphicon-asterisk"></span> Independent Projects/Hackathons</h3>
 		<h4>Online Mafia Game and Chatroom</h4>
 		<h5><span class="label label-primary">Javascript</span></h5>
 		<ul class="nav nav-pills nav-stacked">
@@ -158,6 +192,6 @@
 <footer class="container-fluid">
   <p>Footer Text</p>
 </footer>
-
+<button onclick="window.location.href = '#';" id="myBtn" title="Go to top">Top</button>
 </body>
 </html>
